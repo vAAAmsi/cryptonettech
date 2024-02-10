@@ -17,7 +17,7 @@ const UserDetails = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [copied, setCopied] = useState(false)
-    console.log(data[0])
+
     useEffect(() => {
       const fetchData = async() => {
         const apiData = await fetch('https://randomuser.me/api/?page=1&results=1&seed=abc');
@@ -56,6 +56,7 @@ const UserDetails = () => {
                 
                 >
                 <Image
+                    fallbackSrc='/loader.svg'
                     objectFit='cover'
                     maxW={{ base: '50%', sm: '200px' }}
                     src={data[0]?.picture?.large}
